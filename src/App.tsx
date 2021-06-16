@@ -1,25 +1,37 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import {BrowserRouter as Router} from 'react-router-dom';
+
+import { ChakraProvider } from '@chakra-ui/react';
+import {theme} from './styles/theme';
+
+import { Flex,SimpleGrid } from '@chakra-ui/react';
+import {Header} from './components/Header/index.tsx';
+import { SideBar} from './components/Sidebar/index';
+
+import { SideBarDrawerProvider } from './contexts/SidebarDrawerContext';
+
+import {Routes} from './routes';
+
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <ChakraProvider theme={theme} >
+      <SideBarDrawerProvider>
+      <Router>
+      <Flex direction='column' h='100vh' >
+        <Header/>
+        <Flex w='100%' my='6' maxWidth={1480} mx='auto' px='6' >
+          <SideBar/>
+          <SimpleGrid flex='1' gap='4' minChildWidth='380px' align='flex-start'  > 
+              
+              <Routes/>
+          
+            </SimpleGrid>
+        </Flex>
+      </Flex>
+      </Router>
+      </SideBarDrawerProvider>
+      
+    </ChakraProvider>
   );
 }
 
