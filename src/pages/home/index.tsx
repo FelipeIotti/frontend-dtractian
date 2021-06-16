@@ -1,7 +1,6 @@
 import { ActiveCardItem} from '../../components/ActiveCardItem';
 import { useEffect, useState } from 'react';
 import api from '../../services/api';
-import {FormControl,FormLabel,Select,Flex} from '@chakra-ui/react'
 
 interface Actives {
   id: string;

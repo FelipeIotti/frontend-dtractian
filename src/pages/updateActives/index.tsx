@@ -17,7 +17,7 @@ interface CreateActiveFormData {
   responsible_id: string;
   responsible: string;
   company_id: string;
-  status: 'em operacao' |  'em alerta' | 'em parada' ;
+  status: string ;
   health_level: number;
 }
 
@@ -93,9 +93,11 @@ export function UpdateActive(){
         activeInput.responsible_id=user.id;
         activeInput.responsible= user.name;
         activeInput.status = selectStatus;
+        
       }
     });
-
+    console.log (selectStatus);
+    console.log(activeInput)
     await api.put('/actives/'+activeId.id,activeInput);
     history.push('/lactives')
   }
@@ -124,7 +126,7 @@ export function UpdateActive(){
           <Input  label='Nivel de saúde %' error={errors.health_level} {...register("health_level")}/>
           <FormControl mr='10' >
             <FormLabel>Status</FormLabel>
-            <Select onChange={event=>setSelectStatus(event.target.value)} >
+            <Select placeholder='Selecionar status' onChange={event=>setSelectStatus(event.target.value)} >
               <option>Em operação</option>
               <option>Em alerta</option>
               <option>Em parada</option>

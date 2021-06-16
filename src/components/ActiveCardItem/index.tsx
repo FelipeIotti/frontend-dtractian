@@ -1,4 +1,4 @@
-import { Box, Text,Image,Flex,Button, theme } from '@chakra-ui/react';
+import { Box, Text,Image,Flex,Button } from '@chakra-ui/react';
 import Chart from "react-apexcharts";
 
 //const Chart =dynamic(()=> import('react-apexcharts'),{ssr:false});

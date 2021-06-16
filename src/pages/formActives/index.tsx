@@ -79,7 +79,7 @@ export function FormActive(){
   async function createActive (activeInput:ActiveInput){
     
 
-    units.filter((unit)=>{
+      units.filter((unit)=>{
       if(unit.name===selectUnits){
         activeInput.units_id=unit.id;
         activeInput.company_id=unit.company_id

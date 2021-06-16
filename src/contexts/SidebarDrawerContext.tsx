@@ -1,5 +1,5 @@
 import { useDisclosure, UseDisclosureReturn } from "@chakra-ui/react";
-import { createContext, ReactNode, useContext, useEffect } from "react";
+import { createContext, ReactNode, useContext } from "react";
 
 interface SidebarDrawerProviderProps {
   children: ReactNode;
@@ -11,7 +11,7 @@ export function SideBarDrawerProvider({children}: SidebarDrawerProviderProps){
   const disclosure = useDisclosure();
 
 
-  useEffect(() =>{disclosure.onClose()},[])
+  
 
   return(
     <SidebarDrawerContext.Provider value={disclosure} >
